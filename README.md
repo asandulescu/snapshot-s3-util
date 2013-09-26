@@ -7,7 +7,7 @@ mvn clean package
 
 To create a snapshot and immediately export to S3
 ```
-hadoop jar target/snapshot-s3-util-1.0.0.jar com.imgur.backup.SnapshotS3Util --createExport --table <tableName> --bucketName <bucketName> --mappers <numMaps> --awsAccessKey <accessKey> --awsAccessSecret <accessSecret>
+CLASSPATH=/path/to/snapshot-s3-util/target/snapshot-s3-util-1.0.0.jar:`hbase classpath` java com.imgur.backup.SnapshotS3Util --createExport --table <tableName> --bucketName <bucketName> --mappers <numMaps> --awsAccessKey <accessKey> --awsAccessSecret <accessSecret>
 ```
 
 # Options
