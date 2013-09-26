@@ -200,7 +200,9 @@ public class SnapshotS3Util extends Configured implements Tool
 
         try {
             admin = new HBaseAdmin(getNormalConfiguration());
+	    admin.disableTable(tableName);
             admin.snapshot(snapshotName, tableName);
+	    admin.enableTable(tableName);
             ret = true;
         } catch (SnapshotCreationException e) {
             LOG.error("Failed to create snapshot", e);
