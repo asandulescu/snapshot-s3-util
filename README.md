@@ -3,11 +3,15 @@
 mvn clean package
 ```
 
-# Running
+# Setting the classpath
+```
+export HADOOP_CLASSPATH=/path/to/snapshot-s3-util/target/snapshot-s3-util-1.0.0.jar:`hbase classpath`
+```
 
+# Running
 To create a snapshot and immediately export to S3
 ```
-CLASSPATH=/path/to/snapshot-s3-util/target/snapshot-s3-util-1.0.0.jar:`hbase classpath` java com.imgur.backup.SnapshotS3Util --createExport --table <tableName> --bucketName <bucketName> --mappers <numMaps> --awsAccessKey <accessKey> --awsAccessSecret <accessSecret>
+hadoop jar target/snapshot-s3-util-1.0.0.jar com.imgur.backup.SnapshotS3Util --createExport --table <tableName> --bucketName <bucketName> --mappers <numMaps> --awsAccessKey <accessKey> --awsAccessSecret <accessSecret>
 ```
 
 # Options
