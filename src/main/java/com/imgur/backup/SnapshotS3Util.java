@@ -228,6 +228,7 @@ public class SnapshotS3Util extends Configured implements Tool
         int ret = -1;
         String url = getS3Url(true);
         String[] args = {
+            "-no-checksum-verify",
             "-snapshot",
             snapshotName,
             "-copy-to",
@@ -270,6 +271,7 @@ public class SnapshotS3Util extends Configured implements Tool
             
             hdfsUrl = hdfsUrl + hdfsPath;
             String[] args = {
+                "-no-checksum-verify",
                 "-snapshot",
                 snapshotName,
                 "-copy-to",
